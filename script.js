@@ -15,14 +15,17 @@
     //Dealer
     //Cards
 
-const player = [];
-
-const dealer = [];
-
-const cards = {
-    cardback = imgUrl: "/card-deck-css/css/images/backs/blue.svg",
-    ace = 
-}
+const player = {
+    cards: [],
+    score: 0,
+    initialBank: 500,
+    bet: 50,
+    };
+    
+const dealer = {
+    cards: [],
+    score: 0,
+    };
 
 const suits = ["spades", "hearts", "clubs", "diamonds"];
 
@@ -36,8 +39,6 @@ for (let suit = 0; suit <4; suit++) {
 };
 
 const bet = 50;
-
-const initialBank = 500;
 
 let newDeck = createNewDeck();
     function createNewDeck() {
@@ -56,6 +57,7 @@ let newDeck = createNewDeck();
     //Winner
     //Bank
 
+
 //3. Locate the HTML elements being manipulated
     //Bank
     //Result (Did the house win or did the player win?)
@@ -64,6 +66,9 @@ let newDeck = createNewDeck();
     document.getElementById("startbutton").addEventListener("click", startGame);
     document.getElementById("hitmebutton").addEventListener("click", addCard);
     document.getElementById("staybutton").addEventListener("click", endRound);
+
+    document.getElementById("bank").innerHTML = "BANK: $" + player.initialBank;
+    document.getElementById("bet").innerHTML = "BET: $" + player.bet;
 //5. Build your functions! 
     //Initialize function
     //We need function to randomize cards for both the dealer (computer) and the player (mathFloor.(mathRandom() * 52) possibly? 
@@ -85,20 +90,55 @@ function initialize() {
     }
 
 function startGame() {
-    // player = [createNewDeck(deck), createNewDeck(deck)];
-    // dealer = [createNewDeck(deck), createNewDeck(deck)];
-    // }
+    let betAmount = document.getElementById("betAmount").value;
+    let currentBank = document.getElementById("bank").innerText;
+    }
+}
 
-    function addCard() {
+    function renderDeck(deck)
+    {
+          document.getElementById("deck").innerHTML = "";
+    
+        for(let i = 0; i < deck.length; i++)
+        {
+            let card = document.createElement("div");
+            let value = document.createElement("div");
+            let suit = document.createElement("div");
+            card.className = "card";
+            value.className = "value";
+            suit.className = "suit " + deck[i].Suit;
+    
+            value.innerHTML = deck[i].Value;
+            card.appendChild(value);
+            card.appendChild(suit);
+    
+            document.getElementById("deck").appendChild(card);
+        }
+    }
+
+function checkforBust() {
+    if (player > 21) {
+        return "Player has lost";
+    } if (dealer > 21) {
+        return "Computer has lost; 
+    }
+    }
+}
+
+function addCard() {
 
     }
 
-    function endRound() {
+function endRound() {
 
     }
 
-    function getWinner() {
+function getWinner() {
         if (player )
     }
 
 initialize();
+
+
+//How to get card images to render?
+//How to get dealer to stay at soft 18?
