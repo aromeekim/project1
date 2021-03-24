@@ -12,17 +12,255 @@ const dealer = {
     score: 0
 };
 
-
-const suits = ["Spades", "Clubs", "Hearts", "Diamonds"];
-
-const ranks = ["2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "Queen", "King", "Ace"];
-
-const deck = [];
-for (let suit = 0; suit <4; suit++) {
-    for (let rank = 0; rank <13; rank++) {
-        deck.push(ranks[rank] + suits[suit]);
+const deck = {
+    twoOfClubs: {
+        suit: "club",
+        value: 2,
+        imgUrl: "images/clubs-r02.svg"
+    },
+    threeOfClubs: {
+        suit: "club",
+        value: 3,
+        imgUrl: "images/clubs-r03.svg"
+    },
+    fourOfClubs: {
+        suit: "club",
+        value: 4,
+        imgUrl: "images/clubs-r04.svg"
+    },
+    fiveOfClubs: {
+        suit: "club",
+        value: 5,
+        imgUrl: "images/clubs-r05.svg"
+    },
+    sixOfClubs: {
+        suit: "club",
+        value: 6,
+        imgUrl: "images/clubs-r06.svg"
+    },
+    sevenOfClubs: {
+        suit: "club",
+        value: 7,
+        imgUrl: "images/clubs-r07.svg"
+    },
+    eightOfClubs: {
+        suit: "club",
+        value: 8,
+        imgUrl: "images/clubs-r08.svg"
+    },
+    nineOfClubs: {
+        suit: "club",
+        value: 9,
+        imgUrl: "images/clubs-r09.svg"
+    },
+    jackOfClubs: {
+        suit: "club",
+        value: 10,
+        imgUrl: "images/clubs-J.svg"
+    },
+    queenOfClubs: {
+        suit: "club",
+        value: 10,
+        imgUrl: "images/clubs-Q.svg"
+    },
+    kingOfClubs: {
+        suit: "club",
+        value: 10,
+        imgUrl: "images/clubs-K.svg"
+    },
+    aceOfClubs: {
+        suit: "club",
+        value: 10,
+        imgUrl: "images/clubs-A.svg"
+    },
+    twoOfDiamonds: {
+        suit: "diamond",
+        value: 2,
+        imgUrl: "images/diamonds-r02.svg"
+    },
+    threeOfDiamonds: {
+        suit: "diamond",
+        value: 3,
+        imgUrl: "images/diamonds-r03.svg"
+    },
+    fourOfDiamonds: {
+        suit: "diamond",
+        value: 4,
+        imgUrl: "images/diamonds-r04.svg"
+    },
+    fiveOfDiamonds: {
+        suit: "diamond",
+        value: 5,
+        imgUrl: "images/diamonds-r05.svg"
+    },
+    sixOfDiamonds: {
+        suit: "diamond",
+        value: 6,
+        imgUrl: "images/diamonds-r06.svg"
+    },
+    sevenOfDiamonds: {
+        suit: "diamond",
+        value: 7,
+        imgUrl: "images/diamonds-r07.svg"
+    },
+    eightOfDiamonds: {
+        suit: "diamond",
+        value: 8,
+        imgUrl: "images/diamond-r08.svg"
+    },
+    nineOfDiamonds: {
+        suit: "diamond",
+        value: 9,
+        imgUrl: "images/diamonds-r09.svg"
+    },
+    jackOfDiamonds: {
+        suit: "diamond",
+        value: 10,
+        imgUrl: "images/diamonds-J.svg"
+    },
+    queenOfDiamonds: {
+        suit: "diamond",
+        value: 10,
+        imgUrl: "images/diamonds-Q.svg"
+    },
+    kingOfDiamonds: {
+        suit: "diamond",
+        value: 10,
+        imgUrl: "images/diamonds-K.svg"
+    },
+    aceOfDiamonds: {
+        suit: "diamond",
+        value: 11,
+        imgUrl: "images/diamonds-A.svg"
+    },
+    twoOfHearts: {
+        suit: "heart",
+        value: 2,
+        imgUrl: "images/hearts-r02.svg"
+    },
+    threeOfHearts: {
+        suit: "heart",
+        value: 3,
+        imgUrl: "images/hearts-r03.svg"
+    },
+    fourOfHearts: {
+        suit: "heart",
+        value: 4,
+        imgUrl: "images/hearts-r04.svg"
+    },
+    fiveOfHearts: {
+        suit: "heart",
+        value: 5,
+        imgUrl: "images/hearts-r05.svg"
+    },
+    sixOfHearts: {
+        suit: "heart",
+        value: 6,
+        imgUrl: "images/hearts-r06.svg"
+    },
+    sevenOfHearts: {
+        suit: "heart",
+        value: 7,
+        imgUrl: "images/hearts-r07.svg"
+    },
+    eightOfHearts: {
+        suit: "heart",
+        value: 8,
+        imgUrl: "images/hearts-r08.svg"
+    },
+    nineOfHearts: {
+        suit: "heart",
+        value: 9,
+        imgUrl: "images/hearts-r09.svg"
+    },
+    jackOfHearts: {
+        suit: "heart",
+        value: 10,
+        imgUrl: "images/hearts-J.svg"
+    },
+    queenOfHearts: {
+        suit: "heart",
+        value: 10,
+        imgUrl: "images/hearts-Q.svg"
+    },
+    kingOfHearts: {
+        suit: "heart",
+        value: 10,
+        imgUrl: "images/hearts-K.svg"
+    },
+    aceOfHearts: {
+        suit: "heart",
+        value: 11,
+        imgUrl: "images/hearts-A.svg"
+    },
+    twoOfSpades: {
+        suit: "spade",
+        value: 2,
+        imgUrl: "images/spades-r02.svg"
+    },
+    threeOfSpades: {
+        suit: "spade",
+        value: 3,
+        imgUrl: "images/spades-r03.svg"
+    },
+    fourOfSpades: {
+        suit: "spade",
+        value: 4,
+        imgUrl: "images/spades-r04.svg"
+    },
+    fiveOfSpades: {
+        suit:"spade",
+        value: 5,
+        imgUrl: "images/spades-r05.svg"
+    },
+    sixOfSpades: {
+        suit: "spade",
+        value: 6,
+        imgUrl: "images/spades-r06.svg"
+    },
+    sevenOfSpades: {
+        suit: "spade",
+        value: 7,
+        imgUrl: "images/spades-r07.svg"
+    },
+    eightOfSpades: {
+        suit: "spade",
+        value: 8,
+        imgUrl: "images/spades-r08.svg"
+    },
+    nineOfSpades: {
+        suit: "spade",
+        value: 9,
+        imgUrl: "images/spades-r09.svg"
+    },
+    jackOfHearts: {
+        suit: "spade",
+        value: 10,
+        imgUrl: "images/spades-J.svg"
+    },
+    queenOfSpades: {
+        suit: "spade",
+        value: 10,
+        imgUrl: "images/spades-Q.svg"
+    },
+    kingOfSpades: {
+        suit: "spade",
+        value: 10,
+        imgUrl: "images/spades-K.svg"
+    },
+    aceOfSpades: {
+        suit: "spade",
+        value: 11,
+        imgUrl: "images/spades-A.svg"
     }
 };
+
+// const deck = [];
+// for (let suit = 0; suit <4; suit++) {
+//     for (let rank = 0; rank <13; rank++) {
+//         deck.push(ranks[rank] + suits[suit]);
+//     }
+// };
 
 /*----- app's state (variables) -----*/
 
@@ -43,54 +281,48 @@ document.getElementById("hitmebutton").addEventListener("click", hit);
 document.getElementById("staybutton").addEventListener("click", stay);
 
 /*----- functions -----*/
+// function assignCardValue(a) {
+//     let deckArray = [],
+//         sum = 0,
+//         i = 0,
+//         aceValue = 0;
+//     deckArray = a;
+//         for (i; i < deckArray.length; i++) {
+//             if (deckArray[i].rank === "Jack" || deckArray[i].rank === "Queen" || deckArray[i].rank === "King") {
+//                 sum += 10;
+//             } else if (deckArray[i].rank === "Ace") {
+//                 sum += 11;
+//                 aceValue += 1;
+//             } else {
+//                 sum += deckArray[i].rank;
+//             }
+//         }
+//         while (aceValue > 0 && sum > 21) {
+//             sum -= 10;
+//             aceValue -= 1;
+//         }
+//         return sum;
+// };
+
+// function createNewDeck() {
+//     for (let i = 0; i < 52; i++) {
+//         let shuffle = Math.floor(Math.random() * 52);
+//         let temp = deck[i];
+//         deck[i] = deck[shuffle];
+//         deck[shuffle] = temp;
+//     }
+//     return deck;
+// };
 function createNewDeck() {
     for (let i = 0; i < 52; i++) {
         let shuffle = Math.floor(Math.random() * 52);
-        let temp = deck[i];
-        deck[i] = deck[shuffle];
-        deck[shuffle] = temp;
+        let temp = cards[i];
+        cards[i] = cards[shuffle];
+        cards[shuffle] = temp;
     }
-    return deck;
-};
+    return cards;
+}
 
-function assignCardValue(a) {
-    let deckArray = [],
-        sum = 0,
-        i = 0,
-        aceValue = 0;
-    deckArray = a;
-        for (i; i < deckArray.length; i++) {
-            if (deckArray[i].rank === "2") {
-                sum += 2;
-            } if (deckArray[i].rank === "3") {
-                sum += 3;
-            } if (deckArray[i].rank === "4") {
-                sum += 4;
-            } if (deckArray[i].rank === "5") {
-                sum += 5;
-            } if (deckArray[i].rank === "6") {
-                sum += 6;
-            } if (deckArray[i].rank === "7") {
-                sum += 7;
-            } if (deckArray[i].rank === "8") {
-                sum += 8;
-            } if (deckArray[i].rank === "9") {
-                sum += 9;
-            } if (deckArray[i].rank === "10" || deckArray[i].rank === "Jack" || deckArray[i].rank === "Queen" || deckArray[i].rank === "King") {
-                sum += 10;
-            } else if (deckArray[i].rank === "Ace") {
-                sum += 11;
-                aceValue += 1;
-            } else {
-                sum += deckArray[i].rank;
-            }
-        }
-        while (aceValue > 0 && sum > 21) {
-            sum -= 10;
-            aceValue -= 1;
-        }
-        return sum;
-};
 
 function initialize() {
     scores = {
@@ -138,16 +370,24 @@ function bet(outcome) {
 };
 
 function dealerDraw() {
-    dealer.cards.push(newDeck[cardsDrawn]);
-    dealer.score = assignCardValue(dealer.cards);
+    dealer.cards.push(cards[cardsDrawn]);
+    dealer.score = cards[value];
     document.getElementById("dealer-cards").innerHTML = "Dealer's Cards: " + dealer.cards;
     document.getElementById("dealer-score").innerHTML = "Dealer's Score: " + dealer.score;
     cardsDrawn += 1;
-};
+}
+
+// function dealerDraw() {
+//     dealer.cards.push(deck[cardsDrawn]);
+//     dealer.score = assignCardValue(dealer.cards);
+//     document.getElementById("dealer-cards").innerHTML = "Dealer's Cards: " + dealer.cards;
+//     document.getElementById("dealer-score").innerHTML = "Dealer's Score: " + dealer.score;
+//     cardsDrawn += 1;
+// };
 
 function hit() {
-    player.cards.push(newDeck[cardsDrawn]);
-    player.score = assignCardValue(player.cards);
+    player.cards.push(cards[cardsDrawn]);
+    player.score = cards[value];
     document.getElementById("player-cards").innerHTML = "Player's Cards: " + player.cards;
     document.getElementById("player-score").innerHTML = "Player's Score: " + player.score;
     cardsDrawn += 1;
@@ -155,6 +395,17 @@ function hit() {
         endGame();
     }
 };
+
+// function hit() {
+//     player.cards.push(deck[cardsDrawn]);
+//     player.score = assignCardValue(player.cards);
+//     document.getElementById("player-cards").innerHTML = "Player's Cards: " + player.cards;
+//     document.getElementById("player-score").innerHTML = "Player's Score: " + player.score;
+//     cardsDrawn += 1;
+//     if (cardsDrawn >= 2) {
+//         endGame();
+//     }
+// };
 
 function stay() {
     while (dealer.score < 18) {
