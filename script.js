@@ -1,144 +1,215 @@
 /*----- constants -----*/
 
-/*----- app's state (variables) -----*/
-
-/*----- cached element references -----*/
-
-/*----- event listeners -----*/
-
-/*----- functions -----*/
-
-//Pseudocode
-
-//1. Create constants (What's fixed in the game?)
-    //Player
-    //Dealer
-    //Cards
-
 const player = {
     cards: [],
     score: 0,
-    initialBank: 500,
-    bet: 50,
-    };
-    
+    bank: 500,
+    bet: 50
+};
+
 const dealer = {
     cards: [],
-    score: 0,
-    };
+    score: 0
+};
 
-const suits = ["spades", "hearts", "clubs", "diamonds"];
 
-const values = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "10", "10", "10", "11"];
+const suits = ["Spades", "Clubs", "Hearts", "Diamonds"];
+
+const ranks = ["2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "Queen", "King", "Ace"];
 
 const deck = [];
 for (let suit = 0; suit <4; suit++) {
-    for (let rank = 0; rank <14; rank++) {
-        deck.push(values[rank] + suits[suit]);
+    for (let rank = 0; rank <13; rank++) {
+        deck.push(ranks[rank] + suits[suit]);
     }
 };
 
-const bet = 50;
+/*----- app's state (variables) -----*/
+
+let cardsDrawn = 0;
 
 let newDeck = createNewDeck();
-    function createNewDeck() {
+
+/*----- cached element references -----*/
+document.getElementById("bank").innerHTML = "BANK: $" + player.bank;
+
+document.getElementById("bet").innerHTML = "BET: $" + player.bet;
+
+/*----- event listeners -----*/
+document.getElementById("startbutton").addEventListener("click", newGame);
+
+document.getElementById("hitmebutton").addEventListener("click", hit);
+
+document.getElementById("staybutton").addEventListener("click", stay);
+
+/*----- functions -----*/
+function createNewDeck() {
     for (let i = 0; i < 52; i++) {
-      let shuffle = Math.floor(Math.random() * 52);
+        let shuffle = Math.floor(Math.random() * 52);
         let temp = deck[i];
         deck[i] = deck[shuffle];
         deck[shuffle] = temp;
     }
     return deck;
-  }
+}
 
-
-//2. Create the variables (lets)
-    //Score
-    //Winner
-    //Bank
-
-
-//3. Locate the HTML elements being manipulated
-    //Bank
-    //Result (Did the house win or did the player win?)
-//4. Create event listeners
-    //Anything besides buttons? 
-    document.getElementById("startbutton").addEventListener("click", startGame);
-    document.getElementById("hitmebutton").addEventListener("click", addCard);
-    document.getElementById("staybutton").addEventListener("click", endRound);
-
-    document.getElementById("bank").innerHTML = "BANK: $" + player.initialBank;
-    document.getElementById("bet").innerHTML = "BET: $" + player.bet;
-//5. Build your functions! 
-    //Initialize function
-    //We need function to randomize cards for both the dealer (computer) and the player (mathFloor.(mathRandom() * 52) possibly? 
-        //Dealer must stay at soft 18
-    //Must allow for possibility of "hit me", "stay", and "start" (initialize but also to relaunch a new game)
-    //No resetting
-    //Function to do math, add values to cards 
-    //Function for the bank 
-        //starting amount $--
-        //each round means a standard bet of $--
-        //lose means loss in bank
-        //win means double the amount bet
-    //Function to announce winner
-    //Game ends when player has run out of funds
+function assignCardValue(a) {
+    let deckArray = [],
+        sum = 0,
+        i = 0,
+        aceCount = 0;
+    deckArray = a;
+        for (i; i < deckArray.length; i += 1) {
+            if (deckArray[i].rank === "2") {
+                sum += 2;
+            }
+            else if (deckArray[i].rank === "3") {
+                sum += 3;
+            } else if (deckArray[i].rank === "4") {
+                sum += 4;
+            } else if (deckArray[i].rank === "5") {
+                sum += 5;
+            } else if (deckArray[i].rank === "6") {
+                sum += 6;
+            } else if (deckArray[i].rank === "7") {
+                sum += 7;
+            } else if (deckArray[i].rank === "8") {
+                sum += 8;
+            } else if (deckArray[i].rank === "9") {
+                sum += 9;
+            } else if (deckArray[i].rank === "10" || deckArray[i].rank === "Jack" || deckArray[i].rank === "Queen" || deckArray[i].rank === "King") {
+                sum += 10;
+            } else if (deckArray[i].rank === "Ace") {
+                sum += 11;
+                aceCount += 1;
+            } else {
+                sum += deckArray[i].rank;
+            }
+        }
+        while (aceCount > 0 && sum > 21) {
+            sum -= 10;
+            aceCount -= 1;
+        }
+        return sum;
+}
 
 function initialize() {
-        // initialize our data to start the game
-  
-    }
+    scores = {
+        player: 0,
+        dealer: 0
+    };
+    winner = null;
+}
 
-function startGame() {
-    let betAmount = document.getElementById("betAmount").value;
-    let currentBank = document.getElementById("bank").innerText;
+function newGame() {
+    document.getElementById("startbutton").disabled = true;
+    document.getElementById("hitmebutton").disabled = false;
+    document.getElementById("staybutton").disabled = false;
+    document.getElementById("bet").disabled = true;
+    document.getElementById("middle").innerHTML = "";
+    hit();
+    hit();
+    dealerDraw();
+    endGame();
+}
+
+function resetGame() {
+    numCardsPulled = 0;
+    player.cards = [];
+    dealer.cards = [];
+    player.score = 0;
+    dealer.score = 0;
+    initialize();
+    createNewDeck();
+    document.getElementById("hitmebutton").disabled = true;
+    document.getElementById("staybutton").disabled = true;
+    document.getElementById("bet").disabled = false;
+    document.getElementById("bet").max = player.money;
+    document.getElementById("startbutton").disabled = false;
+}
+
+function bet(outcome) {
+    if (outcome === "win") {
+        player.bank += player.bet;
+    }
+    if (outcome === "lose") {
+        player.bank -= player.bet;
     }
 }
 
-    function renderDeck(deck)
-    {
-          document.getElementById("deck").innerHTML = "";
-    
-        for(let i = 0; i < deck.length; i++)
-        {
-            let card = document.createElement("div");
-            let value = document.createElement("div");
-            let suit = document.createElement("div");
-            card.className = "card";
-            value.className = "value";
-            suit.className = "suit " + deck[i].Suit;
-    
-            value.innerHTML = deck[i].Value;
-            card.appendChild(value);
-            card.appendChild(suit);
-    
-            document.getElementById("deck").appendChild(card);
-        }
-    }
+function dealerDraw() {
+    dealer.cards.push(newDeck[cardsDrawn]);
+    dealer.score = assignCardValue(dealer.cards);
+    document.getElementById("dealer-cards").innerHTML = "Dealer's Cards: " + dealer.cards;
+    document.getElementById("dealer-score").innerHTML = "Dealer's Score: " + dealer.score;
+    cardsDrawn += 1;
+}
 
-function checkforBust() {
-    if (player > 21) {
-        return "Player has lost";
-    } if (dealer > 21) {
-        return "Computer has lost; 
-    }
+function hit() {
+    player.cards.push(newDeck[cardsDrawn]);
+    player.score = assignCardValue(player.cards);
+    document.getElementById("player-cards").innerHTML = "Player's Cards: " + player.cards;
+    document.getElementById("player-score").innerHTML = "Player's Score: " + player.score;
+    cardsDrawn += 1;
+    if (cardsDrawn >= 2) {
+        endGame();
     }
 }
 
-function addCard() {
-
+function stay() {
+    while (dealer.score < 18) {
+        dealerDraw();
     }
+    endGame();
+}
 
-function endRound() {
-
+function endGame() {
+    if (player.score === 21) {
+        document.getElementById("middle").innerHTML = "RESULTS:<br><br>Blackjack! You win!";
+        bet("win");
+        document.getElementById("bank").innerHTML = "BANK: $" + player.bank;
+        resetGame();
     }
-
-function getWinner() {
-        if (player )
+    if (player.score > 21) {
+        document.getElementById("middle").innerHTML = "RESULTS:<br><br>You busted! The dealer wins.";
+        bet("lose");
+        document.getElementById("bank").innerHTML = "BANK: $" + player.bank;
+        resetGame();
     }
+    if (dealer.score === 21) { 
+        document.getElementById("middle").innerHTML = "RESULTS:<br><br>The dealer got blackjack! You lose this round.";
+        bet("lose");
+        document.getElementById("bank").innerHTML = "BANK: $" + player.bank;
+        resetGame();
+    }
+    if (dealer.score > 21) {
+        document.getElementById("middle").innerHTML = "RESULTS:<br><br> The dealer busted! You win!";
+        bet("win");
+        document.getElementById("bank").innerHTML = "BANK: $" + player.bank;
+        resetGame();
+    } 
+    if (dealer.score >= 18 && player.score > dealer.score && player.score < 21) {
+        document.getElementById("middle").innerHTML = "RESULTS<br><br>You win! You beat the dealer!";
+        bet("win");
+        document.getElementById("bank").innerHTML = "BANK: $" + player.bank;
+        resetGame();
+    }
+    if (dealer.score >= 18 && player.score < dealer.score && dealer.score < 21) {
+        document.getElementById("middle").innerHTML = "RESULTS: The dealer had the higher score. You lose your bet.";
+        bet("lose");
+        document.getElementById("bank").innerHTML = "BANK: $" + player.bank;
+        resetGame();
+    }
+    if (player.score === dealer.score && dealer.score >= 18 && dealer.score < 21) {
+        document.getElementById("middle").innerHTML = "RESULTS:<br><br> You tied the house! Keep your bet!";
+        resetGame();
+    }
+    if (player.document <= 0) {
+        document.getElementById("startbutton").disabled = true;
+        document.getElementById("hitmebutton").disabled = true;
+        document.getElementById("staybutton").disabled = true;
+        document.getElementById("middle").innerHTML = "You are out of money! Please refresh your browser to start a new game!";
+    }
+}
 
 initialize();
-
-
-//How to get card images to render?
-//How to get dealer to stay at soft 18?
