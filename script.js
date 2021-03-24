@@ -51,47 +51,46 @@ function createNewDeck() {
         deck[shuffle] = temp;
     }
     return deck;
-}
+};
 
 function assignCardValue(a) {
     let deckArray = [],
         sum = 0,
         i = 0,
-        aceCount = 0;
+        aceValue = 0;
     deckArray = a;
-        for (i; i < deckArray.length; i += 1) {
+        for (i; i < deckArray.length; i++) {
             if (deckArray[i].rank === "2") {
                 sum += 2;
-            }
-            else if (deckArray[i].rank === "3") {
+            } if (deckArray[i].rank === "3") {
                 sum += 3;
-            } else if (deckArray[i].rank === "4") {
+            } if (deckArray[i].rank === "4") {
                 sum += 4;
-            } else if (deckArray[i].rank === "5") {
+            } if (deckArray[i].rank === "5") {
                 sum += 5;
-            } else if (deckArray[i].rank === "6") {
+            } if (deckArray[i].rank === "6") {
                 sum += 6;
-            } else if (deckArray[i].rank === "7") {
+            } if (deckArray[i].rank === "7") {
                 sum += 7;
-            } else if (deckArray[i].rank === "8") {
+            } if (deckArray[i].rank === "8") {
                 sum += 8;
-            } else if (deckArray[i].rank === "9") {
+            } if (deckArray[i].rank === "9") {
                 sum += 9;
-            } else if (deckArray[i].rank === "10" || deckArray[i].rank === "Jack" || deckArray[i].rank === "Queen" || deckArray[i].rank === "King") {
+            } if (deckArray[i].rank === "10" || deckArray[i].rank === "Jack" || deckArray[i].rank === "Queen" || deckArray[i].rank === "King") {
                 sum += 10;
             } else if (deckArray[i].rank === "Ace") {
                 sum += 11;
-                aceCount += 1;
+                aceValue += 1;
             } else {
                 sum += deckArray[i].rank;
             }
         }
-        while (aceCount > 0 && sum > 21) {
+        while (aceValue > 0 && sum > 21) {
             sum -= 10;
-            aceCount -= 1;
+            aceValue -= 1;
         }
         return sum;
-}
+};
 
 function initialize() {
     scores = {
@@ -99,7 +98,8 @@ function initialize() {
         dealer: 0
     };
     winner = null;
-}
+    //render();
+};
 
 function newGame() {
     document.getElementById("startbutton").disabled = true;
@@ -111,10 +111,10 @@ function newGame() {
     hit();
     dealerDraw();
     endGame();
-}
+};
 
 function resetGame() {
-    numCardsPulled = 0;
+    cardsDrawn = 0;
     player.cards = [];
     dealer.cards = [];
     player.score = 0;
@@ -124,9 +124,9 @@ function resetGame() {
     document.getElementById("hitmebutton").disabled = true;
     document.getElementById("staybutton").disabled = true;
     document.getElementById("bet").disabled = false;
-    document.getElementById("bet").max = player.money;
+    document.getElementById("bet").max = player.bank;
     document.getElementById("startbutton").disabled = false;
-}
+};
 
 function bet(outcome) {
     if (outcome === "win") {
@@ -135,7 +135,7 @@ function bet(outcome) {
     if (outcome === "lose") {
         player.bank -= player.bet;
     }
-}
+};
 
 function dealerDraw() {
     dealer.cards.push(newDeck[cardsDrawn]);
@@ -143,7 +143,7 @@ function dealerDraw() {
     document.getElementById("dealer-cards").innerHTML = "Dealer's Cards: " + dealer.cards;
     document.getElementById("dealer-score").innerHTML = "Dealer's Score: " + dealer.score;
     cardsDrawn += 1;
-}
+};
 
 function hit() {
     player.cards.push(newDeck[cardsDrawn]);
@@ -154,14 +154,14 @@ function hit() {
     if (cardsDrawn >= 2) {
         endGame();
     }
-}
+};
 
 function stay() {
     while (dealer.score < 18) {
         dealerDraw();
     }
     endGame();
-}
+};
 
 function endGame() {
     if (player.score === 21) {
@@ -204,12 +204,12 @@ function endGame() {
         document.getElementById("middle").innerHTML = "RESULTS:<br><br> You tied the house! Keep your bet!";
         resetGame();
     }
-    if (player.document <= 0) {
+    if (player.bank <= 0) {
         document.getElementById("startbutton").disabled = true;
         document.getElementById("hitmebutton").disabled = true;
         document.getElementById("staybutton").disabled = true;
         document.getElementById("middle").innerHTML = "You are out of money! Please refresh your browser to start a new game!";
     }
-}
+};
 
 initialize();
