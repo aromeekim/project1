@@ -12,261 +12,328 @@ const dealer = {
     score: 0
 };
 
-const deck = {
-    twoOfClubs: {
+const deck = [
+    {   
+        name: "twoOfClubs", 
         suit: "club",
         value: 2,
-        imgUrl: "images/clubs-r02.svg"
+        imgUrl: "card-deck-css/css/images/clubs/clubs-r02.svg"
     },
-    threeOfClubs: {
+    {   
+        name: "threeOfClubs",
         suit: "club",
         value: 3,
-        imgUrl: "images/clubs-r03.svg"
+        imgUrl: "card-deck-css/css/images/clubs/clubs-r03.svg"
     },
-    fourOfClubs: {
+    {   
+        name: "fourOfClubs",
         suit: "club",
         value: 4,
-        imgUrl: "images/clubs-r04.svg"
+        imgUrl: "card-deck-css/css/images/clubs/clubs-r04.svg"
     },
-    fiveOfClubs: {
+    {   
+        name: "fiveOfClubs",
         suit: "club",
         value: 5,
-        imgUrl: "images/clubs-r05.svg"
+        imgUrl: "card-deck-css/css/images/clubs/clubs-r05.svg"
     },
-    sixOfClubs: {
+    {   
+        name: "sixOfClubs",
         suit: "club",
         value: 6,
-        imgUrl: "images/clubs-r06.svg"
+        imgUrl: "card-deck-css/css/images/clubs/clubs-r06.svg"
     },
-    sevenOfClubs: {
+    {   
+        name: "sevenOfClubs",
         suit: "club",
         value: 7,
-        imgUrl: "images/clubs-r07.svg"
+        imgUrl: "card-deck-css/css/images/clubs/clubs-r07.svg"
     },
-    eightOfClubs: {
+    {   
+        name: "eightOfClubs",
         suit: "club",
         value: 8,
-        imgUrl: "images/clubs-r08.svg"
+        imgUrl: "card-deck-css/css/images/clubs/clubs-r08.svg"
     },
-    nineOfClubs: {
+    {   
+        name: "nineOfClubs",
         suit: "club",
         value: 9,
-        imgUrl: "images/clubs-r09.svg"
+        imgUrl: "card-deck-css/css/images/clubs/clubs-r09.svg"
     },
-    jackOfClubs: {
+    {   
+        name: "tenOfClubs",
         suit: "club",
         value: 10,
-        imgUrl: "images/clubs-J.svg"
+        imgUrl: "card-deck-css/css/images/clubs/clubs-10.svg"
     },
-    queenOfClubs: {
+    {   
+        name: "jackOfClubs", 
         suit: "club",
         value: 10,
-        imgUrl: "images/clubs-Q.svg"
+        imgUrl: "card-deck-css/css/images/clubs/clubs-J.svg"
     },
-    kingOfClubs: {
+    {   
+        name: "queenOfClubs",
         suit: "club",
         value: 10,
-        imgUrl: "images/clubs-K.svg"
+        imgUrl: "card-deck-css/css/images/clubs/clubs-Q.svg"
     },
-    aceOfClubs: {
+    {   
+        name: "kingOfClubs", 
         suit: "club",
         value: 10,
-        imgUrl: "images/clubs-A.svg"
+        imgUrl: "card-deck-css/css/images/clubs/clubs-K.svg"
     },
-    twoOfDiamonds: {
+    {   
+        name: "aceOfClubs", 
+        suit: "club",
+        value: 10,
+        imgUrl: "card-deck-css/css/images/clubs/clubs-A.svg"
+    },
+    {   
+        name: "twoOfDiamonds",
         suit: "diamond",
         value: 2,
-        imgUrl: "images/diamonds-r02.svg"
+        imgUrl: "card-deck-css/css/images/diamonds/diamonds-r02.svg"
     },
-    threeOfDiamonds: {
+    {   
+        name: "threeOfDiamonds",
         suit: "diamond",
         value: 3,
-        imgUrl: "images/diamonds-r03.svg"
+        imgUrl: "card-deck-css/css/images/diamonds/diamonds-r03.svg"
     },
-    fourOfDiamonds: {
+    {   
+        name: "fourOfDiamonds",
         suit: "diamond",
         value: 4,
-        imgUrl: "images/diamonds-r04.svg"
+        imgUrl: "card-deck-css/css/images/diamonds/diamonds-r04.svg"
     },
-    fiveOfDiamonds: {
+    {   
+        name: "fiveOfDiamonds",
         suit: "diamond",
         value: 5,
-        imgUrl: "images/diamonds-r05.svg"
+        imgUrl: "card-deck-css/css/images/diamonds/diamonds-r05.svg"
     },
-    sixOfDiamonds: {
+    {   
+        name: "sixOfDiamonds", 
         suit: "diamond",
         value: 6,
-        imgUrl: "images/diamonds-r06.svg"
+        imgUrl: "card-deck-css/css/images/diamonds/diamonds-r06.svg"
     },
-    sevenOfDiamonds: {
+    {   
+        name: "sevenOfDiamonds",
         suit: "diamond",
         value: 7,
-        imgUrl: "images/diamonds-r07.svg"
+        imgUrl: "card-deck-css/css/images/diamonds/diamonds-r07.svg"
     },
-    eightOfDiamonds: {
+    {   
+        name: "eightOfDiamonds", 
         suit: "diamond",
         value: 8,
-        imgUrl: "images/diamond-r08.svg"
+        imgUrl: "card-deck-css/css/images/diamonds/diamond-r08.svg"
     },
-    nineOfDiamonds: {
+    {   
+        name: "nineOfDiamonds", 
         suit: "diamond",
         value: 9,
-        imgUrl: "images/diamonds-r09.svg"
+        imgUrl: "card-deck-css/css/images/diamonds/diamonds-r09.svg"
     },
-    jackOfDiamonds: {
+    {   
+        name: "tenOfDiamonds",
         suit: "diamond",
         value: 10,
-        imgUrl: "images/diamonds-J.svg"
+        imgUrl: "card-deck-css/css/images/diamonds/diamonds-10.svg"
     },
-    queenOfDiamonds: {
+    {   
+        name: "jackOfDiamonds",
         suit: "diamond",
         value: 10,
-        imgUrl: "images/diamonds-Q.svg"
+        imgUrl: "card-deck-css/css/images/diamonds/diamonds-J.svg"
     },
-    kingOfDiamonds: {
+    {   
+        name: "queenOfDiamonds",
         suit: "diamond",
         value: 10,
-        imgUrl: "images/diamonds-K.svg"
+        imgUrl: "card-deck-css/css/images/diamonds/diamonds-Q.svg"
     },
-    aceOfDiamonds: {
+    {   
+        name: "kingOfDiamonds",
+        suit: "diamond",
+        value: 10,
+        imgUrl: "card-deck-css/css/images/diamonds/diamonds-K.svg"
+    },
+    {   
+        name: "aceOfDiamonds",
         suit: "diamond",
         value: 11,
-        imgUrl: "images/diamonds-A.svg"
+        imgUrl: "card-deck-css/css/images/diamonds/diamonds-A.svg"
     },
-    twoOfHearts: {
+    {   
+        name: "twoOfHearts",
         suit: "heart",
         value: 2,
-        imgUrl: "images/hearts-r02.svg"
+        imgUrl: "card-deck-css/css/images/hearts/hearts-r02.svg"
     },
-    threeOfHearts: {
+    {   
+        name: "threeOfHearts",
         suit: "heart",
         value: 3,
-        imgUrl: "images/hearts-r03.svg"
+        imgUrl: "card-deck-css/css/images/hearts/hearts-r03.svg"
     },
-    fourOfHearts: {
+    {   
+        name: "fourOfHearts",
         suit: "heart",
         value: 4,
-        imgUrl: "images/hearts-r04.svg"
+        imgUrl: "card-deck-css/css/images/hearts/hearts-r04.svg"
     },
-    fiveOfHearts: {
+    {   
+        name: "fiveOfHearts",
         suit: "heart",
         value: 5,
-        imgUrl: "images/hearts-r05.svg"
+        imgUrl: "card-deck-css/css/images/hearts/hearts-r05.svg"
     },
-    sixOfHearts: {
+    {   
+        name: "sixOfHearts",
         suit: "heart",
         value: 6,
-        imgUrl: "images/hearts-r06.svg"
+        imgUrl: "card-deck-css/css/images/hearts/hearts-r06.svg"
     },
-    sevenOfHearts: {
+    {   
+        name: "sevenOfHearts",
         suit: "heart",
         value: 7,
-        imgUrl: "images/hearts-r07.svg"
+        imgUrl: "card-deck-css/css/images/hearts/hearts-r07.svg"
     },
-    eightOfHearts: {
+    {   
+        name: "eightOfHearts",
         suit: "heart",
         value: 8,
-        imgUrl: "images/hearts-r08.svg"
+        imgUrl: "card-deck-css/css/images/hearts/hearts-r08.svg"
     },
-    nineOfHearts: {
+    {   
+        name: "nineOfHearts",
         suit: "heart",
         value: 9,
-        imgUrl: "images/hearts-r09.svg"
+        imgUrl: "card-deck-css/css/images/hearts/hearts-r09.svg"
     },
-    jackOfHearts: {
+    {   
+        name: "tenOfHearts",
         suit: "heart",
         value: 10,
-        imgUrl: "images/hearts-J.svg"
+        imgUrl: "card-deck-css/css/images/hearts/hearts-r10.svg"
     },
-    queenOfHearts: {
+    {   
+        name: "jackOfHearts",
         suit: "heart",
         value: 10,
-        imgUrl: "images/hearts-Q.svg"
+        imgUrl: "card-deck-css/css/images/hearts/hearts-J.svg"
     },
-    kingOfHearts: {
+    {   
+        name: "queenOfHearts",
         suit: "heart",
         value: 10,
-        imgUrl: "images/hearts-K.svg"
+        imgUrl: "card-deck-css/css/images/hearts/hearts-Q.svg"
     },
-    aceOfHearts: {
+    {   
+        name: "kingOfHearts",
+        suit: "heart",
+        value: 10,
+        imgUrl: "card-deck-css/css/images/hearts/hearts-K.svg"
+    },
+    {   
+        name: "aceOfHearts",
         suit: "heart",
         value: 11,
-        imgUrl: "images/hearts-A.svg"
+        imgUrl: "card-deck-css/css/images/hearts/hearts-A.svg"
     },
-    twoOfSpades: {
+    {   
+        name: "twoOfSpades",
         suit: "spade",
         value: 2,
-        imgUrl: "images/spades-r02.svg"
+        imgUrl: "card-deck-css/css/images/spades/spades-r02.svg"
     },
-    threeOfSpades: {
+    {   
+        name: "threeOfSpades",
         suit: "spade",
         value: 3,
-        imgUrl: "images/spades-r03.svg"
+        imgUrl: "card-deck-css/css/images/spades/spades-r03.svg"
     },
-    fourOfSpades: {
+    {   
+        name: "fourOfSpades",
         suit: "spade",
         value: 4,
-        imgUrl: "images/spades-r04.svg"
+        imgUrl: "card-deck-css/css/images/spades/spades-r04.svg"
     },
-    fiveOfSpades: {
+    {   
+        name: "fiveOfSpades", 
         suit:"spade",
         value: 5,
-        imgUrl: "images/spades-r05.svg"
+        imgUrl: "card-deck-css/css/images/spades/spades-r05.svg"
     },
-    sixOfSpades: {
+    {   
+        name: "sixOfSpades",
         suit: "spade",
         value: 6,
-        imgUrl: "images/spades-r06.svg"
+        imgUrl: "card-deck-css/css/images/spades/spades-r06.svg"
     },
-    sevenOfSpades: {
+    {   
+        name: "sevenOfSpades",
         suit: "spade",
         value: 7,
-        imgUrl: "images/spades-r07.svg"
+        imgUrl: "card-deck-css/css/images/spades/spades-r07.svg"
     },
-    eightOfSpades: {
+    {   
+        name: "eightOfSpades",
         suit: "spade",
         value: 8,
-        imgUrl: "images/spades-r08.svg"
+        imgUrl: "card-deck-css/css/images/spades/spades-r08.svg"
     },
-    nineOfSpades: {
+    {   
+        name: "nineOfSpades",
         suit: "spade",
         value: 9,
-        imgUrl: "images/spades-r09.svg"
+        imgUrl: "card-deck-css/css/images/spades/spades-r09.svg"
     },
-    jackOfHearts: {
+    {   
+        name: "tenOfSpades",
         suit: "spade",
         value: 10,
-        imgUrl: "images/spades-J.svg"
+        imgUrl: "card-deck-css/css/images/spades/spades-r10.svg"
     },
-    queenOfSpades: {
+    {   
+        name: "jackOfSpades",
         suit: "spade",
         value: 10,
-        imgUrl: "images/spades-Q.svg"
+        imgUrl: "card-deck-css/css/images/spades/spades-J.svg"
     },
-    kingOfSpades: {
+    {   
+        name: "queenOfSpades",
         suit: "spade",
         value: 10,
-        imgUrl: "images/spades-K.svg"
+        imgUrl: "card-deck-css/css/images/spades/spades-Q.svg"
     },
-    aceOfSpades: {
+    {   
+        name: "kingOfSpades",
+        suit: "spade",
+        value: 10,
+        imgUrl: "card-deck-css/css/images/spades/spades-K.svg"
+    },
+    {   
+        name: "aceOfSpades",
         suit: "spade",
         value: 11,
-        imgUrl: "images/spades-A.svg"
+        imgUrl: "card-deck-css/css/images/spades/spades-A.svg"
     }
-};
-
-// const deck = [];
-// for (let suit = 0; suit <4; suit++) {
-//     for (let rank = 0; rank <13; rank++) {
-//         deck.push(ranks[rank] + suits[suit]);
-//     }
-// };
+];
 
 /*----- app's state (variables) -----*/
+let shuffle = Math.floor(Math.random() * 52);
 
 let cardsDrawn = 0;
 
-let newDeck = createNewDeck();
+let newDeck = shuffleDeck();
+
 
 /*----- cached element references -----*/
 document.getElementById("bank").innerHTML = "BANK: $" + player.bank;
@@ -281,48 +348,15 @@ document.getElementById("hitmebutton").addEventListener("click", hit);
 document.getElementById("staybutton").addEventListener("click", stay);
 
 /*----- functions -----*/
-// function assignCardValue(a) {
-//     let deckArray = [],
-//         sum = 0,
-//         i = 0,
-//         aceValue = 0;
-//     deckArray = a;
-//         for (i; i < deckArray.length; i++) {
-//             if (deckArray[i].rank === "Jack" || deckArray[i].rank === "Queen" || deckArray[i].rank === "King") {
-//                 sum += 10;
-//             } else if (deckArray[i].rank === "Ace") {
-//                 sum += 11;
-//                 aceValue += 1;
-//             } else {
-//                 sum += deckArray[i].rank;
-//             }
-//         }
-//         while (aceValue > 0 && sum > 21) {
-//             sum -= 10;
-//             aceValue -= 1;
-//         }
-//         return sum;
-// };
-
-// function createNewDeck() {
-//     for (let i = 0; i < 52; i++) {
-//         let shuffle = Math.floor(Math.random() * 52);
-//         let temp = deck[i];
-//         deck[i] = deck[shuffle];
-//         deck[shuffle] = temp;
-//     }
-//     return deck;
-// };
-function createNewDeck() {
+function shuffleDeck() {
     for (let i = 0; i < 52; i++) {
-        let shuffle = Math.floor(Math.random() * 52);
-        let temp = cards[i];
-        cards[i] = cards[shuffle];
-        cards[shuffle] = temp;
+        shuffle;
+        let temp = deck[i];
+        deck[i] = deck[shuffle];
+        deck[shuffle] = temp;
     }
-    return cards;
-}
-
+    return deck;
+};
 
 function initialize() {
     scores = {
@@ -342,7 +376,7 @@ function newGame() {
     hit();
     hit();
     dealerDraw();
-    endGame();
+    checkWinner();
 };
 
 function resetGame() {
@@ -352,7 +386,7 @@ function resetGame() {
     player.score = 0;
     dealer.score = 0;
     initialize();
-    createNewDeck();
+    shuffleDeck();
     document.getElementById("hitmebutton").disabled = true;
     document.getElementById("staybutton").disabled = true;
     document.getElementById("bet").disabled = false;
@@ -369,52 +403,33 @@ function bet(outcome) {
     }
 };
 
-function dealerDraw() {
-    dealer.cards.push(cards[cardsDrawn]);
-    dealer.score = cards[value];
+function dealerDraw(idx) {
+    dealer.cards.push(deck[idx].imgUrl);
+    dealer.score = deck[idx].value;
     document.getElementById("dealer-cards").innerHTML = "Dealer's Cards: " + dealer.cards;
     document.getElementById("dealer-score").innerHTML = "Dealer's Score: " + dealer.score;
     cardsDrawn += 1;
-}
+};
 
-// function dealerDraw() {
-//     dealer.cards.push(deck[cardsDrawn]);
-//     dealer.score = assignCardValue(dealer.cards);
-//     document.getElementById("dealer-cards").innerHTML = "Dealer's Cards: " + dealer.cards;
-//     document.getElementById("dealer-score").innerHTML = "Dealer's Score: " + dealer.score;
-//     cardsDrawn += 1;
-// };
-
-function hit() {
-    player.cards.push(cards[cardsDrawn]);
-    player.score = cards[value];
+function hit(idx) {
+    player.cards.push(deck[idx].imgUrl);
+    player.score = deck[idx].value;
     document.getElementById("player-cards").innerHTML = "Player's Cards: " + player.cards;
     document.getElementById("player-score").innerHTML = "Player's Score: " + player.score;
     cardsDrawn += 1;
     if (cardsDrawn >= 2) {
-        endGame();
+        checkWinner();
     }
 };
-
-// function hit() {
-//     player.cards.push(deck[cardsDrawn]);
-//     player.score = assignCardValue(player.cards);
-//     document.getElementById("player-cards").innerHTML = "Player's Cards: " + player.cards;
-//     document.getElementById("player-score").innerHTML = "Player's Score: " + player.score;
-//     cardsDrawn += 1;
-//     if (cardsDrawn >= 2) {
-//         endGame();
-//     }
-// };
 
 function stay() {
     while (dealer.score < 18) {
         dealerDraw();
     }
-    endGame();
+    checkWinner();
 };
 
-function endGame() {
+function checkWinner() {
     if (player.score === 21) {
         document.getElementById("middle").innerHTML = "RESULTS:<br><br>Blackjack! You win!";
         bet("win");
@@ -462,5 +477,6 @@ function endGame() {
         document.getElementById("middle").innerHTML = "You are out of money! Please refresh your browser to start a new game!";
     }
 };
+
 
 initialize();
