@@ -14,314 +14,314 @@ const dealer = {
 
 const deck = [
     {   
-        name: "twoOfClubs", 
-        suit: "club",
+        name: "Two of Clubs", 
+        suit: "Club",
         value: 2,
         imgUrl: "card-deck-css/css/images/clubs/clubs-r02.svg"
     },
     {   
-        name: "threeOfClubs",
-        suit: "club",
+        name: "Three of Clubs",
+        suit: "Club",
         value: 3,
         imgUrl: "card-deck-css/css/images/clubs/clubs-r03.svg"
     },
     {   
-        name: "fourOfClubs",
-        suit: "club",
+        name: "Four of Clubs",
+        suit: "Club",
         value: 4,
         imgUrl: "card-deck-css/css/images/clubs/clubs-r04.svg"
     },
     {   
-        name: "fiveOfClubs",
-        suit: "club",
+        name: "Five of Clubs",
+        suit: "Club",
         value: 5,
         imgUrl: "card-deck-css/css/images/clubs/clubs-r05.svg"
     },
     {   
-        name: "sixOfClubs",
-        suit: "club",
+        name: "Six of Clubs",
+        suit: "Club",
         value: 6,
         imgUrl: "card-deck-css/css/images/clubs/clubs-r06.svg"
     },
     {   
-        name: "sevenOfClubs",
-        suit: "club",
+        name: "Seven of Clubs",
+        suit: "Club",
         value: 7,
         imgUrl: "card-deck-css/css/images/clubs/clubs-r07.svg"
     },
     {   
-        name: "eightOfClubs",
-        suit: "club",
+        name: "Eight of Clubs",
+        suit: "Club",
         value: 8,
         imgUrl: "card-deck-css/css/images/clubs/clubs-r08.svg"
     },
     {   
-        name: "nineOfClubs",
-        suit: "club",
+        name: "Nine of Clubs",
+        suit: "Club",
         value: 9,
         imgUrl: "card-deck-css/css/images/clubs/clubs-r09.svg"
     },
     {   
-        name: "tenOfClubs",
-        suit: "club",
+        name: "Ten of Clubs",
+        suit: "Club",
         value: 10,
         imgUrl: "card-deck-css/css/images/clubs/clubs-10.svg"
     },
     {   
-        name: "jackOfClubs", 
-        suit: "club",
+        name: "Jack of Clubs", 
+        suit: "Club",
         value: 10,
         imgUrl: "card-deck-css/css/images/clubs/clubs-J.svg"
     },
     {   
-        name: "queenOfClubs",
-        suit: "club",
+        name: "Queen of Clubs",
+        suit: "Club",
         value: 10,
         imgUrl: "card-deck-css/css/images/clubs/clubs-Q.svg"
     },
     {   
-        name: "kingOfClubs", 
-        suit: "club",
+        name: "King of Clubs", 
+        suit: "Club",
         value: 10,
         imgUrl: "card-deck-css/css/images/clubs/clubs-K.svg"
     },
     {   
-        name: "aceOfClubs", 
-        suit: "club",
+        name: "Ace of Clubs", 
+        suit: "Club",
         value: 10,
         imgUrl: "card-deck-css/css/images/clubs/clubs-A.svg"
     },
     {   
-        name: "twoOfDiamonds",
-        suit: "diamond",
+        name: "Two of Diamonds",
+        suit: "Diamonds",
         value: 2,
         imgUrl: "card-deck-css/css/images/diamonds/diamonds-r02.svg"
     },
     {   
-        name: "threeOfDiamonds",
-        suit: "diamond",
+        name: "Three of Diamonds",
+        suit: "Diamond",
         value: 3,
         imgUrl: "card-deck-css/css/images/diamonds/diamonds-r03.svg"
     },
     {   
-        name: "fourOfDiamonds",
-        suit: "diamond",
+        name: "Four of Diamonds",
+        suit: "Diamond",
         value: 4,
         imgUrl: "card-deck-css/css/images/diamonds/diamonds-r04.svg"
     },
     {   
-        name: "fiveOfDiamonds",
-        suit: "diamond",
+        name: "Five of Diamonds",
+        suit: "Diamond",
         value: 5,
         imgUrl: "card-deck-css/css/images/diamonds/diamonds-r05.svg"
     },
     {   
-        name: "sixOfDiamonds", 
-        suit: "diamond",
+        name: "Six of Diamonds", 
+        suit: "Diamond",
         value: 6,
         imgUrl: "card-deck-css/css/images/diamonds/diamonds-r06.svg"
     },
     {   
-        name: "sevenOfDiamonds",
-        suit: "diamond",
+        name: "Seven of Diamonds",
+        suit: "Diamond",
         value: 7,
         imgUrl: "card-deck-css/css/images/diamonds/diamonds-r07.svg"
     },
     {   
-        name: "eightOfDiamonds", 
-        suit: "diamond",
+        name: "Eight of Diamonds", 
+        suit: "Diamond",
         value: 8,
         imgUrl: "card-deck-css/css/images/diamonds/diamond-r08.svg"
     },
     {   
-        name: "nineOfDiamonds", 
-        suit: "diamond",
+        name: "Nine of Diamonds", 
+        suit: "Diamond",
         value: 9,
         imgUrl: "card-deck-css/css/images/diamonds/diamonds-r09.svg"
     },
     {   
-        name: "tenOfDiamonds",
-        suit: "diamond",
+        name: "Ten of Diamonds",
+        suit: "Diamonds",
         value: 10,
         imgUrl: "card-deck-css/css/images/diamonds/diamonds-10.svg"
     },
     {   
-        name: "jackOfDiamonds",
-        suit: "diamond",
+        name: "Jack of Diamonds",
+        suit: "Diamond",
         value: 10,
         imgUrl: "card-deck-css/css/images/diamonds/diamonds-J.svg"
     },
     {   
-        name: "queenOfDiamonds",
-        suit: "diamond",
+        name: "Queen of Diamonds",
+        suit: "Diamond",
         value: 10,
         imgUrl: "card-deck-css/css/images/diamonds/diamonds-Q.svg"
     },
     {   
-        name: "kingOfDiamonds",
-        suit: "diamond",
+        name: "King of Diamonds",
+        suit: "Diamond",
         value: 10,
         imgUrl: "card-deck-css/css/images/diamonds/diamonds-K.svg"
     },
     {   
-        name: "aceOfDiamonds",
-        suit: "diamond",
+        name: "Ace of Diamonds",
+        suit: "Diamonds",
         value: 11,
         imgUrl: "card-deck-css/css/images/diamonds/diamonds-A.svg"
     },
     {   
-        name: "twoOfHearts",
-        suit: "heart",
+        name: "Two of Hearts",
+        suit: "Heart",
         value: 2,
         imgUrl: "card-deck-css/css/images/hearts/hearts-r02.svg"
     },
     {   
-        name: "threeOfHearts",
-        suit: "heart",
+        name: "Three of Hearts",
+        suit: "Heart",
         value: 3,
         imgUrl: "card-deck-css/css/images/hearts/hearts-r03.svg"
     },
     {   
-        name: "fourOfHearts",
-        suit: "heart",
+        name: "Four of Hearts",
+        suit: "Heart",
         value: 4,
         imgUrl: "card-deck-css/css/images/hearts/hearts-r04.svg"
     },
     {   
-        name: "fiveOfHearts",
-        suit: "heart",
+        name: "Five of Hearts",
+        suit: "Heart",
         value: 5,
         imgUrl: "card-deck-css/css/images/hearts/hearts-r05.svg"
     },
     {   
-        name: "sixOfHearts",
-        suit: "heart",
+        name: "Six of Hearts",
+        suit: "Hearts",
         value: 6,
         imgUrl: "card-deck-css/css/images/hearts/hearts-r06.svg"
     },
     {   
-        name: "sevenOfHearts",
-        suit: "heart",
+        name: "Seven of Hearts",
+        suit: "Heart",
         value: 7,
         imgUrl: "card-deck-css/css/images/hearts/hearts-r07.svg"
     },
     {   
-        name: "eightOfHearts",
-        suit: "heart",
+        name: "Eight of Hearts",
+        suit: "Heart",
         value: 8,
         imgUrl: "card-deck-css/css/images/hearts/hearts-r08.svg"
     },
     {   
-        name: "nineOfHearts",
-        suit: "heart",
+        name: "Nine of Hearts",
+        suit: "Heart",
         value: 9,
         imgUrl: "card-deck-css/css/images/hearts/hearts-r09.svg"
     },
     {   
-        name: "tenOfHearts",
-        suit: "heart",
+        name: "Ten of Hearts",
+        suit: "Heart",
         value: 10,
         imgUrl: "card-deck-css/css/images/hearts/hearts-r10.svg"
     },
     {   
-        name: "jackOfHearts",
-        suit: "heart",
+        name: "Jack of Hearts",
+        suit: "Heart",
         value: 10,
         imgUrl: "card-deck-css/css/images/hearts/hearts-J.svg"
     },
     {   
-        name: "queenOfHearts",
-        suit: "heart",
+        name: "Queen of Hearts",
+        suit: "Heart",
         value: 10,
         imgUrl: "card-deck-css/css/images/hearts/hearts-Q.svg"
     },
     {   
-        name: "kingOfHearts",
-        suit: "heart",
+        name: "King of Hearts",
+        suit: "Heart",
         value: 10,
         imgUrl: "card-deck-css/css/images/hearts/hearts-K.svg"
     },
     {   
-        name: "aceOfHearts",
-        suit: "heart",
+        name: "Ace of Hearts",
+        suit: "Heart",
         value: 11,
         imgUrl: "card-deck-css/css/images/hearts/hearts-A.svg"
     },
     {   
-        name: "twoOfSpades",
-        suit: "spade",
+        name: "Two of Spades",
+        suit: "Spade",
         value: 2,
         imgUrl: "card-deck-css/css/images/spades/spades-r02.svg"
     },
     {   
-        name: "threeOfSpades",
-        suit: "spade",
+        name: "Three of Spades",
+        suit: "Spade",
         value: 3,
         imgUrl: "card-deck-css/css/images/spades/spades-r03.svg"
     },
     {   
-        name: "fourOfSpades",
-        suit: "spade",
+        name: "Four of Spades",
+        suit: "Spade",
         value: 4,
         imgUrl: "card-deck-css/css/images/spades/spades-r04.svg"
     },
     {   
-        name: "fiveOfSpades", 
-        suit:"spade",
+        name: "Five of Spades", 
+        suit:"Spade",
         value: 5,
         imgUrl: "card-deck-css/css/images/spades/spades-r05.svg"
     },
     {   
-        name: "sixOfSpades",
-        suit: "spade",
+        name: "Six of Spades",
+        suit: "Spade",
         value: 6,
         imgUrl: "card-deck-css/css/images/spades/spades-r06.svg"
     },
     {   
-        name: "sevenOfSpades",
-        suit: "spade",
+        name: "Seven of Spades",
+        suit: "Spade",
         value: 7,
         imgUrl: "card-deck-css/css/images/spades/spades-r07.svg"
     },
     {   
-        name: "eightOfSpades",
-        suit: "spade",
+        name: "Eight of Spades",
+        suit: "Spade",
         value: 8,
         imgUrl: "card-deck-css/css/images/spades/spades-r08.svg"
     },
     {   
-        name: "nineOfSpades",
-        suit: "spade",
+        name: "Nine of Spades",
+        suit: "Spade",
         value: 9,
         imgUrl: "card-deck-css/css/images/spades/spades-r09.svg"
     },
     {   
-        name: "tenOfSpades",
-        suit: "spade",
+        name: "Ten of Spades",
+        suit: "Spade",
         value: 10,
         imgUrl: "card-deck-css/css/images/spades/spades-r10.svg"
     },
     {   
-        name: "jackOfSpades",
-        suit: "spade",
+        name: "Jack of Spades",
+        suit: "Spade",
         value: 10,
         imgUrl: "card-deck-css/css/images/spades/spades-J.svg"
     },
     {   
-        name: "queenOfSpades",
-        suit: "spade",
+        name: "Queen of Spades",
+        suit: "Spade",
         value: 10,
         imgUrl: "card-deck-css/css/images/spades/spades-Q.svg"
     },
     {   
-        name: "kingOfSpades",
-        suit: "spade",
+        name: "King of Spades",
+        suit: "Spade",
         value: 10,
         imgUrl: "card-deck-css/css/images/spades/spades-K.svg"
     },
     {   
-        name: "aceOfSpades",
-        suit: "spade",
+        name: "Ace of Spades",
+        suit: "Spade",
         value: 11,
         imgUrl: "card-deck-css/css/images/spades/spades-A.svg"
     }
@@ -332,12 +332,25 @@ let cardsDrawn = 0;
 
 let newDeck = shuffleDeck(deck);
 
-//let shuffle = Math.floor(Math.random() * 52);
-
 /*----- cached element references -----*/
-document.getElementById("bank").innerHTML = "BANK: $" + player.bank;
+const dealerCards = document.getElementById("dealer-cards");
 
-document.getElementById("bet").innerHTML = "BET: $" + player.bet;
+
+const dealerScore = document.getElementById("dealer-score");
+
+
+const playerCards = document.getElementById("player-cards");
+
+
+const playerScore = document.getElementById("player-score");
+
+
+const playerBank = document.getElementById("bank");
+
+
+const playerBet = document.getElementById("bet");
+
+const announcement = document.getElementById("middle");
 
 /*----- event listeners -----*/
 document.getElementById("startbutton").addEventListener("click", newGame);
@@ -349,46 +362,32 @@ document.getElementById("staybutton").addEventListener("click", stay);
 /*----- functions -----*/
 
 function shuffleDeck() {
-    for (let i = 0; i < deck.length; i++) {
-        let shuffle = Math.floor(Math.random() * 52);
-        let temp = deck[i];
-        deck[i] = deck[shuffle];
-        deck[shuffle] = temp;
+    let m = deck.length, t, i;
+    while (m) {
+        i = Math.floor(Math.random() * m--);
+        t = deck[m];
+        deck[m] = deck[i];
+        deck[i] = t;
     }
+
     return deck;
 };
-
-shuffleDeck();
-
-
-// function shuffleDeck() {
-//     for (let i = 0; i < 52; i++) {
-//         let shuffle = Math.floor(Math.random() * 52);
-//         let temp = deck[i];
-//         deck[i] = deck[shuffle];
-//         deck[shuffle] = temp;
-//     }
-//     return deck;
-// };
 
 function initialize() {
     scores = {
         player: 0,
         dealer: 0
     };
+    playerBank;
+    playerBet;
     winner = null;
-    //render();
+    render();
 };
 
 function newGame() {
-    document.getElementById("startbutton").disabled = true;
-    document.getElementById("hitmebutton").disabled = false;
-    document.getElementById("staybutton").disabled = false;
-    document.getElementById("bet").disabled = true;
-    document.getElementById("middle").innerHTML = "";
-    hit(cardsDrawn);
-    hit(cardsDrawn);
-    dealerDraw(cardsDrawn);
+    announcement = "Let's Play!";
+    playerDraw();
+    dealerDraw();
     checkWinner();
 };
 
@@ -398,13 +397,10 @@ function resetGame() {
     dealer.cards = [];
     player.score = 0;
     dealer.score = 0;
+    playerBank = player.bank;
+    playerBet = player.bet;
     initialize();
     shuffleDeck();
-    document.getElementById("hitmebutton").disabled = true;
-    document.getElementById("staybutton").disabled = true;
-    document.getElementById("bet").disabled = false;
-    document.getElementById("bet").max = player.bank;
-    document.getElementById("startbutton").disabled = false;
 };
 
 function bet(outcome) {
@@ -416,114 +412,95 @@ function bet(outcome) {
     }
 };
 
-//function dealerDraw() {
-
-
-//     randomNum = Math.floor(Math.random() * cardDeck.length);
-//     cardsDrawn.push(cardDeck.splice(randomNum,1)); 
-
-//     console.log(String(cardsDrawn[counter]));
-//     counter += 1;
-//     }
-//     while (counter < cardsToDraw);
-      
-//   if (cardsToDraw > 1) 
-
-function dealerDraw(idx) {
-    dealer.score = deck[idx].value;
-    dealer.cards.push(deck.splice(dealerDraw, 1));
-    document.getElementById("dealer-cards").innerHTML = "Dealer Cards: " + dealer.cards;
-    document.getElementById("dealer-score").innerHTML = "Dealer Score: " + dealer.score;
+function dealerDraw() {
+    dealer.score = deck[Math.floor(Math.random() * deck.length)].value;
+    dealer.cards.push(deck[cardsDrawn]);
+    dealerCards = "Dealer's Cards: " + dealer.cards;
+    dealerScore = "Dealer's Score: " + dealer.score;
     cardsDrawn += 1;
+
+    console.log(dealer.score);
 };
 
+function playerDraw() {
+    player.score = deck[Math.floor(Math.random() * deck.length)].value;
+    player.cards.push(deck[CardsDrawn]);
+    playerCards = "Player's Cards: " + player.cards;
+    playerScore = "Player'S Score: " + player.score;
+    cardsDrawn += 2;
 
-// function dealerDraw(x) {
-//     dealer.cards.push(deck);
-//     dealer.score = deck[x].value;
-//     cardsDrawn += 1;
-// }
-
-// function dealerDraw(idx) {
-//     dealer.cards.push(deck[cardsDrawn]);
-//     dealer.score = deck[idx].value;
-//     document.getElementById("dealer-cards").innerHTML = "Dealer Cards: " + dealer.cards;
-//     document.getElementById("dealer-score").innerHTML = "Dealer Score: " + dealer.score;
-//     cardsDrawn += 1;
-// };
-
-// function hit(idx) {
-//     player.cards.push(deck[cardsDrawn]);
-//     player.score = deck[idx].value;
-//     document.getElementById("player-cards").innerHTML = "Player Cards: " + player.cards;
-//     document.getElementById("player-score").innerHTML = "Player Score: " + player.score;
-//     cardsDrawn += 1;
-//     if (cardsDrawn >= 2) {
-//         checkWinner();
-//     }
-// };
+    console.log(player.score);
+}
 
 function hit() {
-    player.score = deck[idx].value;
-    player.cards.push(deck.splice(hit, 2));
-    document.getElementById("dealer-cards").innerHTML = "Dealer Cards: " + dealer.cards;
-    document.getElementById("dealer-score").innerHTML = "Dealer Score: " + dealer.score;
-    cardsDrawn += 2;
+    player.score = deck[Math.floor(Math.random() * deck.length)].value;
+    player.cards.push(deck[cardsDrawn]);
+    playerCards = "Player's Cards: " + player.cards;
+    playerScore = "Player's Score: " + player.score;
+    cardsDrawn += 1;
 };
 
 function stay() {
     while (dealer.score < 18) {
-        dealerDraw(cardsDrawn);
+        dealerDraw();
     }
     checkWinner();
 };
 
+function render() {
+    dealerCards.style.imgUrl = `url(${deck[dealer.cards].imgUrl})`;
+    playerCards.style.imgUrl = `url(${deck[player.cards].imgUrl})`;
+    
+    dealerScore = dealer.score;
+    playerScore = player.score;
+
+    playerBank = player.bank;
+};
+
+
 function checkWinner() {
     if (player.score === 21) {
-        document.getElementById("middle").innerHTML = "RESULTS:<br><br>Blackjack! You win!";
+        announcement = "RESULTS:<br><br>Blackjack! You win!";
         bet("win");
-        document.getElementById("bank").innerHTML = "BANK: $" + player.bank;
+        playerBank = "BANK: $" + player.bank;
         resetGame();
     }
     if (player.score > 21) {
-        document.getElementById("middle").innerHTML = "RESULTS:<br><br>You busted! The dealer wins.";
+        announcement = "RESULTS:<br><br>You busted! The dealer wins.";
         bet("lose");
-        document.getElementById("bank").innerHTML = "BANK: $" + player.bank;
+        playerBank = "BANK: $" + player.bank;
         resetGame();
     }
     if (dealer.score === 21) { 
-        document.getElementById("middle").innerHTML = "RESULTS:<br><br>The dealer got blackjack! You lose this round.";
+        announcement = "RESULTS:<br><br>The dealer got blackjack! You lose this round.";
         bet("lose");
-        document.getElementById("bank").innerHTML = "BANK: $" + player.bank;
+        playerBank = "BANK: $" + player.bank;
         resetGame();
     }
     if (dealer.score > 21) {
-        document.getElementById("middle").innerHTML = "RESULTS:<br><br> The dealer busted! You win!";
+        announcement = "RESULTS:<br><br> The dealer busted! You win!";
         bet("win");
-        document.getElementById("bank").innerHTML = "BANK: $" + player.bank;
+        playerBank = "BANK: $" + player.bank;
         resetGame();
     } 
     if (dealer.score >= 18 && player.score > dealer.score && player.score < 21) {
-        document.getElementById("middle").innerHTML = "RESULTS<br><br>You win! You beat the dealer!";
+        announcement = "RESULTS<br><br>You win! You beat the dealer!";
         bet("win");
-        document.getElementById("bank").innerHTML = "BANK: $" + player.bank;
+        playerBank = "BANK: $" + player.bank;
         resetGame();
     }
     if (dealer.score >= 18 && player.score < dealer.score && dealer.score < 21) {
-        document.getElementById("middle").innerHTML = "RESULTS: The dealer had the higher score. You lose your bet.";
+        announcement = "RESULTS: The dealer had the higher score. You lose your bet.";
         bet("lose");
-        document.getElementById("bank").innerHTML = "BANK: $" + player.bank;
+        playerBank = "BANK: $" + player.bank;
         resetGame();
     }
     if (player.score === dealer.score && dealer.score >= 18 && dealer.score < 21) {
-        document.getElementById("middle").innerHTML = "RESULTS:<br><br> You tied the house! Keep your bet!";
+        announcement = "RESULTS:<br><br> You tied the house! Keep your bet!";
         resetGame();
     }
     if (player.bank <= 0) {
-        document.getElementById("startbutton").disabled = true;
-        document.getElementById("hitmebutton").disabled = true;
-        document.getElementById("staybutton").disabled = true;
-        document.getElementById("middle").innerHTML = "You are out of money! Please refresh your browser to start a new game!";
+        announcement = "You are out of money! Please refresh your browser to start a new game!";
     }
 };
 
