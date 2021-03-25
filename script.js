@@ -328,12 +328,11 @@ const deck = [
 ];
 
 /*----- app's state (variables) -----*/
-let shuffle = Math.floor(Math.random() * 52);
-
 let cardsDrawn = 0;
 
-let newDeck = shuffleDeck();
+let newDeck = shuffleDeck(deck);
 
+//let shuffle = Math.floor(Math.random() * 52);
 
 /*----- cached element references -----*/
 document.getElementById("bank").innerHTML = "BANK: $" + player.bank;
@@ -348,15 +347,29 @@ document.getElementById("hitmebutton").addEventListener("click", hit);
 document.getElementById("staybutton").addEventListener("click", stay);
 
 /*----- functions -----*/
+
 function shuffleDeck() {
-    for (let i = 0; i < 52; i++) {
-        shuffle;
+    for (let i = 0; i < deck.length; i++) {
+        let shuffle = Math.floor(Math.random() * 52);
         let temp = deck[i];
         deck[i] = deck[shuffle];
         deck[shuffle] = temp;
     }
     return deck;
 };
+
+shuffleDeck();
+
+
+// function shuffleDeck() {
+//     for (let i = 0; i < 52; i++) {
+//         let shuffle = Math.floor(Math.random() * 52);
+//         let temp = deck[i];
+//         deck[i] = deck[shuffle];
+//         deck[shuffle] = temp;
+//     }
+//     return deck;
+// };
 
 function initialize() {
     scores = {
@@ -373,9 +386,9 @@ function newGame() {
     document.getElementById("staybutton").disabled = false;
     document.getElementById("bet").disabled = true;
     document.getElementById("middle").innerHTML = "";
-    hit();
-    hit();
-    dealerDraw();
+    hit(cardsDrawn);
+    hit(cardsDrawn);
+    dealerDraw(cardsDrawn);
     checkWinner();
 };
 
@@ -403,28 +416,64 @@ function bet(outcome) {
     }
 };
 
+//function dealerDraw() {
+
+
+//     randomNum = Math.floor(Math.random() * cardDeck.length);
+//     cardsDrawn.push(cardDeck.splice(randomNum,1)); 
+
+//     console.log(String(cardsDrawn[counter]));
+//     counter += 1;
+//     }
+//     while (counter < cardsToDraw);
+      
+//   if (cardsToDraw > 1) 
+
 function dealerDraw(idx) {
-    dealer.cards.push(deck[idx].imgUrl);
     dealer.score = deck[idx].value;
-    document.getElementById("dealer-cards").innerHTML = "Dealer's Cards: " + dealer.cards;
-    document.getElementById("dealer-score").innerHTML = "Dealer's Score: " + dealer.score;
+    dealer.cards.push(deck.splice(dealerDraw, 1));
+    document.getElementById("dealer-cards").innerHTML = "Dealer Cards: " + dealer.cards;
+    document.getElementById("dealer-score").innerHTML = "Dealer Score: " + dealer.score;
     cardsDrawn += 1;
 };
 
-function hit(idx) {
-    player.cards.push(deck[idx].imgUrl);
+
+// function dealerDraw(x) {
+//     dealer.cards.push(deck);
+//     dealer.score = deck[x].value;
+//     cardsDrawn += 1;
+// }
+
+// function dealerDraw(idx) {
+//     dealer.cards.push(deck[cardsDrawn]);
+//     dealer.score = deck[idx].value;
+//     document.getElementById("dealer-cards").innerHTML = "Dealer Cards: " + dealer.cards;
+//     document.getElementById("dealer-score").innerHTML = "Dealer Score: " + dealer.score;
+//     cardsDrawn += 1;
+// };
+
+// function hit(idx) {
+//     player.cards.push(deck[cardsDrawn]);
+//     player.score = deck[idx].value;
+//     document.getElementById("player-cards").innerHTML = "Player Cards: " + player.cards;
+//     document.getElementById("player-score").innerHTML = "Player Score: " + player.score;
+//     cardsDrawn += 1;
+//     if (cardsDrawn >= 2) {
+//         checkWinner();
+//     }
+// };
+
+function hit() {
     player.score = deck[idx].value;
-    document.getElementById("player-cards").innerHTML = "Player's Cards: " + player.cards;
-    document.getElementById("player-score").innerHTML = "Player's Score: " + player.score;
-    cardsDrawn += 1;
-    if (cardsDrawn >= 2) {
-        checkWinner();
-    }
+    player.cards.push(deck.splice(hit, 2));
+    document.getElementById("dealer-cards").innerHTML = "Dealer Cards: " + dealer.cards;
+    document.getElementById("dealer-score").innerHTML = "Dealer Score: " + dealer.score;
+    cardsDrawn += 2;
 };
 
 function stay() {
     while (dealer.score < 18) {
-        dealerDraw();
+        dealerDraw(cardsDrawn);
     }
     checkWinner();
 };
@@ -477,6 +526,5 @@ function checkWinner() {
         document.getElementById("middle").innerHTML = "You are out of money! Please refresh your browser to start a new game!";
     }
 };
-
 
 initialize();
