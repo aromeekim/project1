@@ -404,7 +404,7 @@ function newGame() {
 function dealerDraw() {
     if (dealer.cards.length < 2) {
             for (let i = 0; i < 2; i++) { 
-            var x = Math.floor(Math.random() * deck.length)
+            let x = Math.floor(Math.random() * deck.length)
             dealer.score = deck[x].value;
             dealer.cards.push(deck[x]);
             deck.splice(x, 1);
@@ -413,7 +413,7 @@ function dealerDraw() {
             render();
         }
     } else {
-        var x = Math.floor(Math.random() * deck.length)
+        let x = Math.floor(Math.random() * deck.length)
         dealer.score = deck[x].value;
         dealer.cards.push(deck[x]);
         deck.splice(x, 1);
@@ -425,7 +425,7 @@ function dealerDraw() {
 
 function playerDraw() {
     for (let i = 0; i < 2; i++) { 
-        var x = Math.floor(Math.random() * deck.length)
+        let x = Math.floor(Math.random() * deck.length)
         player.score = deck[x].value;
         player.cards.push(deck[x]);
         deck.splice(x, 1);
@@ -459,6 +459,17 @@ function stay() {
     render()
 };
 
+
+
+function bet(outcome) {
+    if (outcome === "win") {
+        player.bank += player.bet;
+    }
+    if (outcome === "lose") {
+        player.bank -= player.bet;
+    }
+};
+
 function getCardElements (cards) {
     let elements = "";
     
@@ -478,48 +489,39 @@ function render() {
         playerCardImages.innerHTML = getCardElements(player.cards); 
 };
 
-function bet(outcome) {
-    if (outcome === "win") {
-        player.bank += player.bet;
-    }
-    if (outcome === "lose") {
-        player.bank -= player.bet;
-    }
-};
-
 function checkWinner() {
     if (player.total === 21) {
         announcement.innerHTML = "RESULTS:<br><br>Blackjack! You win!";
         bet("win");
         playerBank.innerHTML = "BANK: $" + player.bank;
-            initialize();
+        initialize();
     } else if (player.total > 21) {
         announcement.innerHTML = "RESULTS:<br><br>You busted! The dealer wins.";
         bet("lose");
         playerBank.innerHTML = "BANK: $" + player.bank;
-            initialize();
+        initialize();
     } else if (dealer.total === 21) { 
         announcement.innerHTML = "RESULTS:<br><br>The dealer got blackjack! You lose this round.";
         bet("lose");
         playerBank.innerHTML = "BANK: $" + player.bank;
-            initialize();
+        initialize();
     } else if (dealer.total > 21) {
         announcement.innerHTML = "RESULTS:<br><br> The dealer busted! You win!";
         bet("win");
         playerBank.innerHTML = "BANK: $" + player.bank;
-            initialize();
+        initialize();
     }  else if (dealer.total >= 18 && player.total > dealer.total && player.total < 21) {
         announcement.innerHTML = "RESULTS<br><br>You win! You beat the dealer!";
         bet("win");
         playerBank.innerHTML = "BANK: $" + player.bank;
-            initialize();
+        initialize();
     } else if (dealer.total >= 18 && player.total < dealer.total && dealer.total < 21) {
         announcement.innerHTML = "RESULTS: The dealer had the higher score. You lose your bet.";
         bet("lose");
         playerBank.innerHTML = "BANK: $" + player.bank;
-            initialize();
+        initialize();
     } else if (player.total === dealer.total && dealer.total >= 18 && dealer.total < 21) {
         announcement.innerHTML = "RESULTS:<br><br> You tied the house! Keep your bet!";
-            initialize();
+        initialize();
     } 
 };
