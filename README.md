@@ -8,7 +8,7 @@ Blackjack, also commonly known as 21, is a popular card game in which the goal i
 
 ## Wireframe
 
-![Wireframe](imgs/Wireframe.jpg)
+![Wireframe](imgs/wireframe.png)
 
 ## Game in Action
 
