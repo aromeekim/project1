@@ -11,7 +11,6 @@ body {
 header {
     display: flex;
     color: #FFFFFF;
-    -webkit-text-stroke: #5A3A81;
     font-size: 20px;
     margin: 10px;
     justify-content: center;
@@ -32,6 +31,7 @@ div {
 #left {
     display: grid;
     flex-direction: row;
+    flex-wrap: nowrap;
     justify-content: center;
     background-color: #5A3A81;
     color: #926AC7;
@@ -53,14 +53,14 @@ div {
 }
 
 #player-card-images {
-    display: grid;
+    display: flex;
     flex-wrap: wrap;
     flex-direction: row;
     background-color: #FFFFFF;
 }
 
 #dealer-card-images {
-    display: grid;
+    display: flex;
     flex-wrap: wrap;
     flex-direction: row;
     background-color: #FFFFFF;
@@ -81,4 +81,8 @@ button {
 button:hover {
 	background-color:#FFFFFF;
 	color:#5A3A81;
+}
+
+img {
+    max-width: 50px;
 }

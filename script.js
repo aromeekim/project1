@@ -1,7 +1,7 @@
 let player = {
     cards: [],
     score: 0,
-    bank: 500,
+    bank: 100,
     bet: 50,
     total: 0
 };
@@ -327,7 +327,6 @@ let deck = [
     }
 ];
 
-
 let newDeck = shuffleDeck(deck);
 
 let dealerCardImages = document.getElementById("dealer-card-images");
@@ -372,8 +371,7 @@ function initialize() {
         deck.push(player.cards.pop());
     }
 
-    dealerCardImages.innerHTML = '';
-
+    dealerCardImages.innerHTML = "";
 
     player.score = 0;
     dealer.score = 0;
@@ -392,12 +390,11 @@ function newGame() {
     if (player.bank <= 0) {
         announcement.innerHTML = "You are out of money! Please refresh your browser to start a new game!";
     } else {announcement.innerHTML = "Let's Play!";
-        dealerScore.innerHTML = '';
+        dealerScore.innerHTML = "";
         playerBet.innerHTML = "BET: $" + player.bet;
         playerBank.innerHTML = "BANK: $" + player.bank;
         playerDraw();
         dealerDraw();
-        // checkWinner();
         document.getElementById("startbutton").disabled = true;
         document.getElementById("hitmebutton").disabled = false;
         document.getElementById("staybutton").disabled = false;
@@ -426,7 +423,6 @@ function dealerDraw() {
     }
 };
 
-
 function playerDraw() {
     for (let i = 0; i < 2; i++) { 
         var x = Math.floor(Math.random() * deck.length)
@@ -436,8 +432,7 @@ function playerDraw() {
         player.total = parseInt(player.total);
         player.total = player.total + player.score;
         playerScore.innerHTML = "Player's Score: " + player.total;
-        render();
-        
+        render();  
     };
 };
 
@@ -478,7 +473,7 @@ function render() {
             dealerCardImages.innerHTML = getCardElements(dealer.cards);
             dealerScore.innerHTML = "Dealer's Score: " + dealer.total;
         } else if (dealer.cards.length > 0 && dealer.cards.length < 2) {
-            dealerCardImages.innerHTML = `<img src="${dealer.cards[0].imgUrl}"><br> <img src="card-deck-css/css/images/backs/blue.svg">`
+            dealerCardImages.innerHTML = `<img src="${dealer.cards[0].imgUrl}"><br><img src="card-deck-css/css/images/backs/blue.svg">`
         }
         playerCardImages.innerHTML = getCardElements(player.cards); 
 };
