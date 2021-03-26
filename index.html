@@ -4,8 +4,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel = "stylesheet" href = "style.css">
     <link rel = "stylesheet" href = "card-deck-css/css/cardstarter.css"> 
+    <link rel = "stylesheet" href = "card-deck-css/css/cardstarter.min.css">
+    <link rel = "stylesheet" href = "style.css">
     <title>Blackjack Project</title>
 </head>
 <body>
@@ -18,7 +19,12 @@
                <div class="dealer">
                 <h2>DEALER</h2>
                     <div id="dealer-cards">
-                        <img height="100px" width="100px"></img>
+                        <p>
+                            Dealer's Cards:
+                        </p>
+                    </div>
+                    <div id="dealer-card-images">
+                        <img height="50px" width="50px"></img>
                     </div>
                     <div id ="dealer-score">
                     </div>
@@ -26,8 +32,12 @@
                 <div class="player">
                 <h2>PLAYER</h2>
                     <div id="player-cards">
-                        <img height="100px" width="100px"></img>
-                        <img height="100px" width="100px"></img>
+                        <p>
+                            Player's Cards:
+                        </p>
+                    </div>
+                    <div id="player-card-images">
+                        <img height="50px" width="50px"></img>
                     </div>
                     <div id ="player-score">
                     </div>
@@ -45,11 +55,9 @@
             <p>
                 <button id="staybutton">Stay!</button>
             </p>
-            <span id = "bank">
-              BANK: 
+            <span id="bank"> 
             </span>
-            <span id = "bet">
-              BET:
+            <span id="bet">
             </span> 
        </div>
     </main>

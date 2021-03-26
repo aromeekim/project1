@@ -52,6 +52,20 @@ div {
     color: #5A3A81
 }
 
+#player-card-images {
+    display: grid;
+    flex-wrap: wrap;
+    flex-direction: row;
+    background-color: #FFFFFF;
+}
+
+#dealer-card-images {
+    display: grid;
+    flex-wrap: wrap;
+    flex-direction: row;
+    background-color: #FFFFFF;
+}
+
 button {
 	background-color: #5A3A81;
 	color: #FFFFFF;

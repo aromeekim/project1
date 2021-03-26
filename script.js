@@ -1,18 +1,18 @@
-/*----- constants -----*/
-
-const player = {
+let player = {
     cards: [],
     score: 0,
     bank: 500,
-    bet: 50
+    bet: 50,
+    total: 0
 };
 
-const dealer = {
+let dealer = {
     cards: [],
-    score: 0
+    score: 0,
+    total: 0
 };
 
-const deck = [
+let deck = [
     {   
         name: "Two of Clubs", 
         suit: "Club",
@@ -65,7 +65,7 @@ const deck = [
         name: "Ten of Clubs",
         suit: "Club",
         value: 10,
-        imgUrl: "card-deck-css/css/images/clubs/clubs-10.svg"
+        imgUrl: "card-deck-css/css/images/clubs/clubs-r10.svg"
     },
     {   
         name: "Jack of Clubs", 
@@ -131,7 +131,7 @@ const deck = [
         name: "Eight of Diamonds", 
         suit: "Diamond",
         value: 8,
-        imgUrl: "card-deck-css/css/images/diamonds/diamond-r08.svg"
+        imgUrl: "card-deck-css/css/images/diamonds/diamonds-r08.svg"
     },
     {   
         name: "Nine of Diamonds", 
@@ -143,7 +143,7 @@ const deck = [
         name: "Ten of Diamonds",
         suit: "Diamonds",
         value: 10,
-        imgUrl: "card-deck-css/css/images/diamonds/diamonds-10.svg"
+        imgUrl: "card-deck-css/css/images/diamonds/diamonds-r10.svg"
     },
     {   
         name: "Jack of Diamonds",
@@ -327,39 +327,28 @@ const deck = [
     }
 ];
 
-/*----- app's state (variables) -----*/
-let cardsDrawn = 0;
 
 let newDeck = shuffleDeck(deck);
 
-/*----- cached element references -----*/
-const dealerCards = document.getElementById("dealer-cards");
+let dealerCardImages = document.getElementById("dealer-card-images");
 
+let dealerScore = document.getElementById("dealer-score");
 
-const dealerScore = document.getElementById("dealer-score");
+let playerCardImages = document.getElementById("player-card-images");
 
+let playerScore = document.getElementById("player-score");
 
-const playerCards = document.getElementById("player-cards");
+let playerBank = document.getElementById("bank");
 
+let playerBet = document.getElementById("bet");
 
-const playerScore = document.getElementById("player-score");
+let announcement = document.getElementById("middle");
 
-
-const playerBank = document.getElementById("bank");
-
-
-const playerBet = document.getElementById("bet");
-
-const announcement = document.getElementById("middle");
-
-/*----- event listeners -----*/
 document.getElementById("startbutton").addEventListener("click", newGame);
 
 document.getElementById("hitmebutton").addEventListener("click", hit);
 
 document.getElementById("staybutton").addEventListener("click", stay);
-
-/*----- functions -----*/
 
 function shuffleDeck() {
     let m = deck.length, t, i;
@@ -374,33 +363,124 @@ function shuffleDeck() {
 };
 
 function initialize() {
-    scores = {
-        player: 0,
-        dealer: 0
-    };
-    playerBank;
-    playerBet;
-    winner = null;
-    render();
+
+    while (dealer.cards.length > 0) {
+        deck.push(dealer.cards.pop());
+    }
+        
+    while (player.cards.length > 0) {
+        deck.push(player.cards.pop());
+    }
+
+    dealerCardImages.innerHTML = '';
+
+
+    player.score = 0;
+    dealer.score = 0;
+    player.total = 0;
+    dealer.total = 0;
+    playerBank.innerHTML = "BANK: $" + player.bank;
+    playerBet.innerHTML = "BET: $" + player.bet;
+    shuffleDeck();
+
+    document.getElementById("startbutton").disabled = false;
+    document.getElementById("hitmebutton").disabled = true;
+    document.getElementById("staybutton").disabled = true;
 };
 
 function newGame() {
-    announcement = "Let's Play!";
-    playerDraw();
-    dealerDraw();
+    if (player.bank <= 0) {
+        announcement.innerHTML = "You are out of money! Please refresh your browser to start a new game!";
+    } else {announcement.innerHTML = "Let's Play!";
+        dealerScore.innerHTML = '';
+        playerBet.innerHTML = "BET: $" + player.bet;
+        playerBank.innerHTML = "BANK: $" + player.bank;
+        playerDraw();
+        dealerDraw();
+        // checkWinner();
+        document.getElementById("startbutton").disabled = true;
+        document.getElementById("hitmebutton").disabled = false;
+        document.getElementById("staybutton").disabled = false;
+    }
+};
+
+function dealerDraw() {
+    if (dealer.cards.length < 2) {
+            for (let i = 0; i < 2; i++) { 
+            var x = Math.floor(Math.random() * deck.length)
+            dealer.score = deck[x].value;
+            dealer.cards.push(deck[x]);
+            deck.splice(x, 1);
+            dealer.total = parseInt(dealer.total);
+            dealer.total = dealer.total + dealer.score;
+            render();
+        }
+    } else {
+        var x = Math.floor(Math.random() * deck.length)
+        dealer.score = deck[x].value;
+        dealer.cards.push(deck[x]);
+        deck.splice(x, 1);
+        dealer.total = parseInt(dealer.total);
+        dealer.total = dealer.total + dealer.score 
+        render();
+    }
+};
+
+
+function playerDraw() {
+    for (let i = 0; i < 2; i++) { 
+        var x = Math.floor(Math.random() * deck.length)
+        player.score = deck[x].value;
+        player.cards.push(deck[x]);
+        deck.splice(x, 1);
+        player.total = parseInt(player.total);
+        player.total = player.total + player.score;
+        playerScore.innerHTML = "Player's Score: " + player.total;
+        render();
+        
+    };
+};
+
+function hit() {
+    let x = Math.floor(Math.random() * deck.length);
+    player.score = deck[x].value;
+    player.cards.push(deck[x]);
+    deck.splice(x, 1);
+    player.total = parseInt(player.total);
+    player.total = player.total + player.score;    
+    playerScore.innerHTML = "Player's Score: " + player.total;
+    render();
     checkWinner();
 };
 
-function resetGame() {
-    cardsDrawn = 0;
-    player.cards = [];
-    dealer.cards = [];
-    player.score = 0;
-    dealer.score = 0;
-    playerBank = player.bank;
-    playerBet = player.bet;
-    initialize();
-    shuffleDeck();
+function stay() {
+    document.getElementById("hitmebutton").disabled = true;
+    dealerScore.innerHTML = "Dealer's Score: " + dealer.total;
+    while (dealer.total < 18) {
+        dealerDraw();
+    }
+    checkWinner();
+
+    render()
+};
+
+function getCardElements (cards) {
+    let elements = "";
+    
+    for (let i = 0; i < cards.length; i++) {
+        elements += `<img src="${cards[i].imgUrl}">`;
+    }
+    return elements;
+};
+
+function render() {
+        if (dealer.cards.length > 2) {
+            dealerCardImages.innerHTML = getCardElements(dealer.cards);
+            dealerScore.innerHTML = "Dealer's Score: " + dealer.total;
+        } else if (dealer.cards.length > 0 && dealer.cards.length < 2) {
+            dealerCardImages.innerHTML = `<img src="${dealer.cards[0].imgUrl}"><br> <img src="card-deck-css/css/images/backs/blue.svg">`
+        }
+        playerCardImages.innerHTML = getCardElements(player.cards); 
 };
 
 function bet(outcome) {
@@ -412,96 +492,39 @@ function bet(outcome) {
     }
 };
 
-function dealerDraw() {
-    dealer.score = deck[Math.floor(Math.random() * deck.length)].value;
-    dealer.cards.push(deck[cardsDrawn]);
-    dealerCards = "Dealer's Cards: " + dealer.cards;
-    dealerScore = "Dealer's Score: " + dealer.score;
-    cardsDrawn += 1;
-
-    console.log(dealer.score);
-};
-
-function playerDraw() {
-    player.score = deck[Math.floor(Math.random() * deck.length)].value;
-    player.cards.push(deck[CardsDrawn]);
-    playerCards = "Player's Cards: " + player.cards;
-    playerScore = "Player'S Score: " + player.score;
-    cardsDrawn += 2;
-
-    console.log(player.score);
-}
-
-function hit() {
-    player.score = deck[Math.floor(Math.random() * deck.length)].value;
-    player.cards.push(deck[cardsDrawn]);
-    playerCards = "Player's Cards: " + player.cards;
-    playerScore = "Player's Score: " + player.score;
-    cardsDrawn += 1;
-};
-
-function stay() {
-    while (dealer.score < 18) {
-        dealerDraw();
-    }
-    checkWinner();
-};
-
-function render() {
-    dealerCards.style.imgUrl = `url(${deck[dealer.cards].imgUrl})`;
-    playerCards.style.imgUrl = `url(${deck[player.cards].imgUrl})`;
-    
-    dealerScore = dealer.score;
-    playerScore = player.score;
-
-    playerBank = player.bank;
-};
-
-
 function checkWinner() {
-    if (player.score === 21) {
-        announcement = "RESULTS:<br><br>Blackjack! You win!";
+    if (player.total === 21) {
+        announcement.innerHTML = "RESULTS:<br><br>Blackjack! You win!";
         bet("win");
-        playerBank = "BANK: $" + player.bank;
-        resetGame();
-    }
-    if (player.score > 21) {
-        announcement = "RESULTS:<br><br>You busted! The dealer wins.";
+        playerBank.innerHTML = "BANK: $" + player.bank;
+            initialize();
+    } else if (player.total > 21) {
+        announcement.innerHTML = "RESULTS:<br><br>You busted! The dealer wins.";
         bet("lose");
-        playerBank = "BANK: $" + player.bank;
-        resetGame();
-    }
-    if (dealer.score === 21) { 
-        announcement = "RESULTS:<br><br>The dealer got blackjack! You lose this round.";
+        playerBank.innerHTML = "BANK: $" + player.bank;
+            initialize();
+    } else if (dealer.total === 21) { 
+        announcement.innerHTML = "RESULTS:<br><br>The dealer got blackjack! You lose this round.";
         bet("lose");
-        playerBank = "BANK: $" + player.bank;
-        resetGame();
-    }
-    if (dealer.score > 21) {
-        announcement = "RESULTS:<br><br> The dealer busted! You win!";
+        playerBank.innerHTML = "BANK: $" + player.bank;
+            initialize();
+    } else if (dealer.total > 21) {
+        announcement.innerHTML = "RESULTS:<br><br> The dealer busted! You win!";
         bet("win");
-        playerBank = "BANK: $" + player.bank;
-        resetGame();
+        playerBank.innerHTML = "BANK: $" + player.bank;
+            initialize();
+    }  else if (dealer.total >= 18 && player.total > dealer.total && player.total < 21) {
+        announcement.innerHTML = "RESULTS<br><br>You win! You beat the dealer!";
+        bet("win");
+        playerBank.innerHTML = "BANK: $" + player.bank;
+            initialize();
+    } else if (dealer.total >= 18 && player.total < dealer.total && dealer.total < 21) {
+        announcement.innerHTML = "RESULTS: The dealer had the higher score. You lose your bet.";
+        bet("lose");
+        playerBank.innerHTML = "BANK: $" + player.bank;
+            initialize();
+    } else if (player.total === dealer.total && dealer.total >= 18 && dealer.total < 21) {
+        announcement.innerHTML = "RESULTS:<br><br> You tied the house! Keep your bet!";
+            initialize();
     } 
-    if (dealer.score >= 18 && player.score > dealer.score && player.score < 21) {
-        announcement = "RESULTS<br><br>You win! You beat the dealer!";
-        bet("win");
-        playerBank = "BANK: $" + player.bank;
-        resetGame();
-    }
-    if (dealer.score >= 18 && player.score < dealer.score && dealer.score < 21) {
-        announcement = "RESULTS: The dealer had the higher score. You lose your bet.";
-        bet("lose");
-        playerBank = "BANK: $" + player.bank;
-        resetGame();
-    }
-    if (player.score === dealer.score && dealer.score >= 18 && dealer.score < 21) {
-        announcement = "RESULTS:<br><br> You tied the house! Keep your bet!";
-        resetGame();
-    }
-    if (player.bank <= 0) {
-        announcement = "You are out of money! Please refresh your browser to start a new game!";
-    }
 };
-
-initialize();
