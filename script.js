@@ -459,8 +459,6 @@ function stay() {
     render()
 };
 
-
-
 function bet(outcome) {
     if (outcome === "win") {
         player.bank += player.bet;
